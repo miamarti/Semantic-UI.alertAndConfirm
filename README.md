@@ -19,6 +19,60 @@ Semantic-UI Alert &amp; Confirm
     <alert ng-model="$root.msg" ng-confirm="$root.confirm" ng-show="$root.msg.show" />
 ```
 
+## Factory
+```
+    'use strict';
+    
+    angular.module('example').factory('MsgFactory', function ($rootScope, $cookies) {
+        return function () {
+            this.msg = [];
+            this.type = undefined;
+            this.show = false;
+    
+            this.setMsg = function (value) {
+                this.msg = value;
+            };
+    
+            this.setType = function (value) {
+                this.type = value;
+            };
+    
+            this.setShow = function (value) {
+                this.show = value;
+            };
+    
+            this.push = function (value) {
+                this.msg.push(value);
+            };
+    
+            this.apply = function () {
+                $rootScope.msg = this;
+            };
+        };
+    });
+```
+
+## Use Factory
+```
+    var msg = new MsgFactory();
+    msg.setMsg('Informed message');
+    msg.setType('confirm');
+    msg.setShow(true);
+    msg.apply();
+```
+
+## Message Types
+| Type | Color | Modal |
+|:-----|:------|:------|
+| success | #83D147 | false |
+| info | #17ABEF | false |
+| warning | #F7C000 | false |
+| danger | #E23D1C | false |
+| confirm | #83D147 | true |
+| confirm-info | #17ABEF | true |
+| confirm-warning | #F7C000 | true |
+| confirm-danger | #E23D1C | true |
+
 ## Bower install de dependency
 ```
 $ bower install Semantic-UI.alertAndConfirm --save
