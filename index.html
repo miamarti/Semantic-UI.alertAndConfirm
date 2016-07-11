@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Semantic-ui.alertAndConfirm by miamarti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Semantic-ui.alertAndConfirm</h1>
+      <h2 class="project-tagline">Semantic-UI Alert &amp; Confirm</h2>
+      <a href="https://github.com/miamarti/Semantic-UI.alertAndConfirm" class="btn">View on GitHub</a>
+      <a href="https://github.com/miamarti/Semantic-UI.alertAndConfirm/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/miamarti/Semantic-UI.alertAndConfirm/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="semantic-uialertandconfirm" class="anchor" href="#semantic-uialertandconfirm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantic-UI.alertAndConfirm</h1>
+
+<p>Semantic-UI Alert &amp; Confirm
+<br>Semantic is a UI component framework based around useful principles from natural language. <a href="http://www.semantic-ui.com">http://www.semantic-ui.com</a></p>
+
+<p>
+  <a href="https://gitter.im/miamarti/Semantic-UI.alertAndConfirm"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg"></a>
+  <img src="https://img.shields.io/badge/SemanticUI.alertAndConfirm-release-green.svg">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg">
+  <img src="https://img.shields.io/github/license/mashape/apistatus.svg">
+  <a href="https://github.com/miamarti/Semantic-UI.alertAndConfirm/tarball/master"><img src="https://img.shields.io/github/downloads/atom/atom/latest/total.svg"></a>
+  <img src="https://img.shields.io/bower/v/bootstrap.svg">
+</p>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>AngularJS</li>
+</ul>
+
+<h2>
+<a id="implementation" class="anchor" href="#implementation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementation</h2>
+
+<pre><code>    &lt;alert ng-model="$root.msg" ng-confirm="$root.confirm" ng-show="$root.msg.show" /&gt;
+</code></pre>
+
+<h2>
+<a id="factory" class="anchor" href="#factory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Factory</h2>
+
+<pre><code>    'use strict';
+
+    angular.module('example').factory('MsgFactory', function ($rootScope, $cookies) {
+        return function () {
+            this.msg = [];
+            this.type = undefined;
+            this.show = false;
+
+            this.setMsg = function (value) {
+                this.msg = value;
+            };
+
+            this.setType = function (value) {
+                this.type = value;
+            };
+
+            this.setShow = function (value) {
+                this.show = value;
+            };
+
+            this.push = function (value) {
+                this.msg.push(value);
+            };
+
+            this.apply = function () {
+                $rootScope.msg = this;
+            };
+        };
+    });
+</code></pre>
+
+<h2>
+<a id="use-factory" class="anchor" href="#use-factory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use Factory</h2>
+
+<pre><code>    var msg = new MsgFactory();
+    msg.setMsg('Informed message');
+    msg.setType('confirm');
+    msg.setShow(true);
+    msg.apply();
+</code></pre>
+
+<h2>
+<a id="message-types" class="anchor" href="#message-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Message Types</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Color</th>
+<th align="left">Modal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">success</td>
+<td align="left">#83D147</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">info</td>
+<td align="left">#17ABEF</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">warning</td>
+<td align="left">#F7C000</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">danger</td>
+<td align="left">#E23D1C</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">confirm</td>
+<td align="left">#83D147</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">confirm-info</td>
+<td align="left">#17ABEF</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">confirm-warning</td>
+<td align="left">#F7C000</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">confirm-danger</td>
+<td align="left">#E23D1C</td>
+<td align="left">true</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="bower-install-de-dependency" class="anchor" href="#bower-install-de-dependency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bower install de dependency</h2>
+
+<pre><code>$ bower install Semantic-UI.alertAndConfirm --save
+</code></pre>
+
+<h2>
+<a id="module-angularjs-include" class="anchor" href="#module-angularjs-include" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module AngularJS include</h2>
+
+<pre><code>angular.module('example', ["ngAlertAndConfirm"]);
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/miamarti/Semantic-UI.alertAndConfirm">Semantic-ui.alertAndConfirm</a> is maintained by <a href="https://github.com/miamarti">miamarti</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
