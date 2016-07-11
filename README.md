@@ -16,21 +16,7 @@ Semantic-UI Alert &amp; Confirm
 
 ## Implementation
 ```
-    <div class="ui pointing secondary menu" ng-tab>
-        <a class="item active" data-tab="tabA">Tab A</a>
-        <a class="item" data-tab="tabB">Tab B</a>
-        <a class="item" data-tab="tabC">Tab C</a>
-    </div>
-    
-    <div class="ui attached tab active tabs-datails" data-tab="tabA">
-      ...
-    </div>
-    <div class="ui attached tab tabs-datails" data-tab="tabB">
-      ...
-    </div>
-    <div class="ui attached tab tabs-datails" data-tab="tabC">
-      ...
-    </div>
+    <alert ng-model="$root.msg" ng-confirm="$root.confirm" ng-show="$root.msg.show" />
 ```
 
 ## Bower install de dependency
