@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    (angular.module('ngBootstrapAlert', ['ng'])).directive('alert', [
+    (angular.module('ngAlertAndConfirm', ['ng'])).directive('alert', [
         function () {
             return {
                 restrict: 'E',
