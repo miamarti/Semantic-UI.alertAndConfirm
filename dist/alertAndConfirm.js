@@ -76,7 +76,7 @@
                             scope.type = scope.ngModel.type;
                             scope.style = color[scope.type];
                             
-                            if ((scope.ngModel.type.split('-'))[0] === 'confirm') {
+                            if (scope.ngModel.type && (scope.ngModel.type.split('-'))[0] === 'confirm') {
                                 $('#genericConfirmHeader').css("background", color[scope.type]);
                                 $('#genericConfirmActionOk').css("background", color[scope.type]);
 
