@@ -1,6 +1,6 @@
 {
-  "name": "ng.alertAndConfirm",
-  "version": "1.0.1",
+  "name": "ng-alertAndConfirm",
+  "version": "1.0.2",
   "keywords": ["semantic-ui", "alert", "confirm"],
   "main": ["dist/alertAndConfirm.js"],
   "ignore": [
